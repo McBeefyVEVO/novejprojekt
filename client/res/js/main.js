@@ -11,6 +11,10 @@ socket.on("connect", () => {
     setInfo("You are connected! :3")
 });
 
+socket.on("message-received", (data) => {
+    setInfo(data.payload);
+});
+
 socket.on("message", (data) => {
     chat.innerHTML += `<p>${data.id}: ${data.payload}</p>`
 });

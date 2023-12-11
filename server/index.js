@@ -12,6 +12,7 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
     console.log(socket.id);
     socket.on("message", (data) => {
+        socket.emit("message-received", ({payload: "Your message was received"}))
         io.emit("message", data);
     });
 });
